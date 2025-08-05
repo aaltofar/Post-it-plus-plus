@@ -11,7 +11,13 @@ public class PrintModule(IPrinterQueueService queueService) : InteractionModuleB
         [Summary("message", "The content of the note")] string message,
         [Summary("project", "Optional project name")] string? project = null)
     {
-        var request = new PrintJob
+        if (string.IsNullOrWhiteSpace(message))
+        {
+            await RespondAsync("Message can't be empty.", ephemeral: true);
+            return;
+        }
+
+        var job = new PrintJob
         {
             Message = message,
             Sender = Context.User.Username,
@@ -19,7 +25,8 @@ public class PrintModule(IPrinterQueueService queueService) : InteractionModuleB
             CreatedAt = DateTime.UtcNow
         };
 
-        await queueService.EnqueueAsync(request);
-        await RespondAsync($"Queued your message: \"{message}\"");
+        await queueService.EnqueueAsync(job);
+
+        await RespondAsync($"Queued: \"{message}\"", ephemeral: true);
     }
 }
