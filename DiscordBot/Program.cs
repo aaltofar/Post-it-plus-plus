@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PrintServer.Queue;
+SQLitePCL.Batteries_V2.Init();
 
 Host.CreateDefaultBuilder(args)
     .ConfigureAppConfiguration(config =>
@@ -20,7 +21,6 @@ Host.CreateDefaultBuilder(args)
         services.AddSingleton<DiscordSocketClient>();
         services.AddSingleton<InteractionService>();
         services.AddSingleton<BotService>();
-
         services.AddSingleton<IPrinterQueueService, PrinterQueueService>();
     })
     .Build()
