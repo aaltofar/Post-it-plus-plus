@@ -19,7 +19,13 @@ Host.CreateDefaultBuilder(args)
 
         // Discord core services
         services.AddSingleton<DiscordSocketClient>();
-        services.AddSingleton<InteractionService>();
+
+        services.AddSingleton(sp =>
+        {
+            var client = sp.GetRequiredService<DiscordSocketClient>();
+            return new InteractionService(client);
+        });
+
         services.AddSingleton<BotService>();
         services.AddSingleton<IPrinterQueueService, PrinterQueueService>();
     })
