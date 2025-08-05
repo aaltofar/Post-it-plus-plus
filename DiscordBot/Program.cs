@@ -5,21 +5,23 @@ using DiscordBot.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PrintServer.Queue;
 
 Host.CreateDefaultBuilder(args)
     .ConfigureAppConfiguration(config =>
     {
-        config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-            .AddUserSecrets<Program>();
+        config.AddUserSecrets<Program>(); // Can add .AddJsonFile if you're using appsettings too, or replaced
     })
     .ConfigureServices((ctx, services) =>
     {
-        services.Configure<BotSettings>(ctx.Configuration);
+        services.Configure<BotSettings>(ctx.Configuration.GetSection("Bot"));
+
+        // Discord core services
         services.AddSingleton<DiscordSocketClient>();
         services.AddSingleton<InteractionService>();
         services.AddSingleton<BotService>();
-        // services.AddSingleton<PrinterService>(); 
 
+        services.AddSingleton<IPrinterQueueService, PrinterQueueService>();
     })
     .Build()
     .Services
