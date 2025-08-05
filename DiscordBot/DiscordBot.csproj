@@ -20,4 +20,8 @@
       <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.7" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\PrintServer\PrintServer.csproj" />
+    </ItemGroup>
+
 </Project>
