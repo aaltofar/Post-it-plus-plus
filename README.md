@@ -1,6 +1,6 @@
 # 🖨️ Post-it++
 
-A Discord-powered Raspberry Pi thermal receipt printer bot that prints your chaotic digital thoughts as physical todo notes. Because some problems deserve to exist in the real world.
+A Discord-powered Raspberry Pi thermal receipt printer bot that prints your chaotic digital thoughts as physical todo notes. 
 
 ## 📦 Project Structure
 TodoPrinter.sln
