@@ -16,7 +16,6 @@ TodoPrinter.sln
 - 📋 Persistent local queue (SQLite)
 - 🖥️ Web UI to view, manage, and configure print jobs
 - 🧠 Template system for project-specific formatting
-- 🐧 Hosted on a Raspberry Pi like an absolute legend
 
 ## 🚀 Getting Started
 
