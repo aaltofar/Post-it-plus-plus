@@ -4,10 +4,10 @@ A Discord-powered Raspberry Pi thermal receipt printer bot that prints your chao
 
 ## 📦 Project Structure
 TodoPrinter.sln
-├── DiscordBot/ - Listens to Discord slash commands like /print
-├── PrinterApp/ - Core logic: queue, templates, printer handling
-├── PrinterApi/ - HTTP API for managing queue, settings, templates
-└── PrinterFrontend/ - Blazor WASM frontend for UI access to the queue
+- ├── DiscordBot/ - Listens to Discord slash commands like /print
+- ├── PrinterApp/ - Core logic: queue, templates, printer handling
+- ├── PrinterApi/ - HTTP API for managing queue, settings, templates
+- └── PrinterFrontend/ - Blazor WASM frontend for UI access to the queue
 
 ## 💡 Features
 
